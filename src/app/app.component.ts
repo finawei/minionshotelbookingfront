@@ -16,12 +16,11 @@ constructor(private http: HttpClient, private reservationService: ReservationSer
   this.reservation = new Reservation();
 }
 
+
 // post checkin and checkout date to back end
 public save() {
   this.reservationService.saveReservation(this.reservation).subscribe();
 }
-
-
 
 
 

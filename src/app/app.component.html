@@ -11,18 +11,24 @@
         <img src="http://weknowyourdreams.com/images/minions/minions-01.jpg" width="384" length="240">
     </div>
 </div>
-
+<form>
 <div class="columns is-centered">
     <div class="column is-narrow">
             <md-input-container>
-                    <input [(ngModel)]="reservation.checkinDate" mdInput [mdDatepicker]="picker1" placeholder="Check-in Date">
+                    <input required name="checkinDate" #checkinDate="ngModel" [(ngModel)]="reservation.checkinDate" mdInput [mdDatepicker]="picker1" placeholder="Check-in Date" >
                     <button mdSuffix [mdDatepickerToggle]="picker1"></button>
+                        <md-error *ngIf="checkinDate.errors && (checkinDate.dirty || checkinDate.touched)" >
+                            Date required
+                        </md-error>
                   </md-input-container>
                   <md-datepicker #picker1></md-datepicker>
                 
                 <md-input-container>
-                    <input [(ngModel)]="reservation.checkoutDate" mdInput [mdDatepicker]="picker2" placeholder="Check-out Date">
+                    <input required name="checkoutDate" #checkoutDate="ngModel" [(ngModel)]="reservation.checkoutDate" mdInput [mdDatepicker]="picker2" placeholder="Check-out Date">                  
                     <button mdSuffix [mdDatepickerToggle]="picker2"></button>
+                    <md-error *ngIf="checkoutDate.errors && (checkoutDate.dirty || checkoutDate.dirty)">
+                        Date required
+                    </md-error>
                   </md-input-container>
                   <md-datepicker #picker2></md-datepicker>
     </div>
@@ -31,12 +37,13 @@
 
 <div class="columns is-centered">
     <div class="column is-narrow"> 
-            <button md-button (click)="save()"><md-icon>save</md-icon> Save</button>
+            <button [disabled]="!checkinDate.valid || !checkoutDate.valid " md-button (click)="save()"><md-icon>save</md-icon> Save</button>
             <button md-button (click)="overview()"><md-icon>list</md-icon> Overiew</button>
             <button md-button (click)="clear()"><md-icon>delete</md-icon> Delete</button>
     </div>
 
 </div>
+</form>
 
 <ul><li *ngFor = "let date of bookingDates">
     {{date.checkinDate}} - {{date.checkoutDate}}</li>
