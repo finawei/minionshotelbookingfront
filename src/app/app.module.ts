@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { ReservationService} from './service/reservation.service';
 import 'hammerjs';
 
 @NgModule({
@@ -18,7 +19,7 @@ import 'hammerjs';
         BrowserAnimationsModule,
         MaterialModule
     ],
-    providers: [],
+    providers: [ReservationService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

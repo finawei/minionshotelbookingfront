@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { ReservationService} from './service/reservation.service';
+import { Reservation} from './model/reservation';
 
 @Component({
   selector: 'app-root',
@@ -7,37 +9,31 @@ import { HttpClient} from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-public checkinDate: Date;
-public checkoutDate: Date;
+public reservation: Reservation;
 public bookingDates: any[];
 
-constructor(private http: HttpClient) {}
+constructor(private http: HttpClient, private reservationService: ReservationService) {
+  this.reservation = new Reservation();
+}
 
 // post checkin and checkout date to back end
 public save() {
-console.log(this.checkinDate);
-const body = {checkinDate: this.checkinDate, checkoutDate: this.checkoutDate};
-console.log(body);
-// send post request
-this.http.post('http://localhost:8080/dateregistration', body).subscribe((data) => {
-  alert('Reservation saved!');
-});
+  this.reservationService.saveReservation(this.reservation).subscribe();
 }
+
+
+
 
 
 // get checkin and checkout overview
 public overview() {
-this.http.get('http://localhost:8080/dateregistration').subscribe((data: any) => {
-console.log(data);
-this.bookingDates = data;
-  });
+  this.reservationService.checkReservation().subscribe((data: any) => {this.bookingDates = data; });
 }
 
 // clear all bookings
 public clear() {
-this.http.delete('http://localhost:8080/dateregistration').subscribe( () => {
-this.bookingDates = null;
-  });
+    this.reservationService.deleteAll().subscribe(() => {this.bookingDates = null;
+    });
 }
 
 }

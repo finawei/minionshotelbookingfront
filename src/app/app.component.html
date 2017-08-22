@@ -1,36 +1,41 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<h1>Hello Minions!</h1>
-<img src="http://weknowyourdreams.com/images/minions/minions-01.jpg" width="384" length="240">
+<div class="columns is-centered">
+    <div class="column is-narrow">
+        <h1>Hello Minions!</h1>
+    </div>
+ </div>
 
 
-<md-input-container>
-    <input [(ngModel)]="checkinDate" mdInput [mdDatepicker]="picker1" placeholder="Check-in Date">
-    <button mdSuffix [mdDatepickerToggle]="picker1"></button>
-  </md-input-container>
-  <md-datepicker #picker1></md-datepicker>
-
-<md-input-container>
-    <input [(ngModel)]="checkoutDate" mdInput [mdDatepicker]="picker2" placeholder="Check-out Date">
-    <button mdSuffix [mdDatepickerToggle]="picker2"></button>
-  </md-input-container>
-  <md-datepicker #picker2></md-datepicker>
-
-<!-- <div><label for="CheckoutDate">Check-out</label>
-    <input [(ngModel)]="checkoutDate" type="date" name="checkoutDate" id="">
+<div class="columns is-centered">
+    <div class="column is-narrow">
+        <img src="http://weknowyourdreams.com/images/minions/minions-01.jpg" width="384" length="240">
+    </div>
 </div>
 
-<div><label for="CheckinDate">Check-in</label>
-    <input [(ngModel)]="checkinDate" type="date" name="checkinDate" id="CheckinDate">
+<div class="columns is-centered">
+    <div class="column is-narrow">
+            <md-input-container>
+                    <input [(ngModel)]="reservation.checkinDate" mdInput [mdDatepicker]="picker1" placeholder="Check-in Date">
+                    <button mdSuffix [mdDatepickerToggle]="picker1"></button>
+                  </md-input-container>
+                  <md-datepicker #picker1></md-datepicker>
+                
+                <md-input-container>
+                    <input [(ngModel)]="reservation.checkoutDate" mdInput [mdDatepicker]="picker2" placeholder="Check-out Date">
+                    <button mdSuffix [mdDatepickerToggle]="picker2"></button>
+                  </md-input-container>
+                  <md-datepicker #picker2></md-datepicker>
+    </div>
+
 </div>
 
-<input (click)="overview()" type="button" value="Booking Overview">
-<input (click)="clear()" type="button" value="Clear">
- -->
+<div class="columns is-centered">
+    <div class="column is-narrow"> 
+            <button md-button (click)="save()"><md-icon>save</md-icon> Save</button>
+            <button md-button (click)="overview()"><md-icon>list</md-icon> Overiew</button>
+            <button md-button (click)="clear()"><md-icon>delete</md-icon> Delete</button>
+    </div>
 
-<div>
-<button md-button (click)="save()"><md-icon>save</md-icon> Save</button>
-<button md-button (click)="overview()"><md-icon>list</md-icon> Overiew</button>
-<button md-button (click)="clear()"><md-icon>delete</md-icon> Delete</button>
 </div>
 
 <ul><li *ngFor = "let date of bookingDates">
