@@ -19,14 +19,21 @@ constructor(private http: HttpClient, private reservationService: ReservationSer
 
 // post checkin and checkout date to back end
 public save() {
-  this.reservationService.saveReservation(this.reservation).subscribe();
+  this.reservationService.saveReservation(this.reservation).subscribe((data: any) => {
+  }, (error: any) => {
+    alert('Invalid Dates');
+  });
 }
 
 
 
 // get checkin and checkout overview
 public overview() {
-  this.reservationService.checkReservation().subscribe((data: any) => {this.bookingDates = data; });
+  this.reservationService.checkReservation().subscribe((data: any) => {
+    this.bookingDates = data;
+  }, (error: any) => {
+    alert('Invalid Dates');
+  });
 }
 
 // clear all bookings

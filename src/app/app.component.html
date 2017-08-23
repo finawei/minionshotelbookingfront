@@ -17,9 +17,14 @@
             <md-input-container>
                     <input required name="checkinDate" #checkinDate="ngModel" [(ngModel)]="reservation.checkinDate" mdInput [mdDatepicker]="picker1" placeholder="Check-in Date" >
                     <button mdSuffix [mdDatepickerToggle]="picker1"></button>
-                        <md-error *ngIf="checkinDate.errors && (checkinDate.dirty || checkinDate.touched)" >
-                            Date required
+                    <div *ngIf="checkinDate.invalid && (checkinDate.dirty || checkinDate.touched)"> 
+                        <md-error *ngIf="checkinDate.errors.required" >        
+                            Date require
                         </md-error>
+
+                    </div>
+     
+
                   </md-input-container>
                   <md-datepicker #picker1></md-datepicker>
                 
