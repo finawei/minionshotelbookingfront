@@ -1,55 +1,38 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="columns is-centered">
-    <div class="column is-narrow">
-        <h1>Hello Minions!</h1>
+<md-sidenav-container>
+    <md-sidenav #sidenav mode="over">
+        <md-list>
+        <md-list-item (click)="sidenav.close()" routerLink="/overview">Overview</md-list-item>
+        <md-list-item (click)="sidenav.close()" routerLink="/create">Date Registeration</md-list-item>
+        </md-list>
+    </md-sidenav>
+
+
+    <div>
+        <div class="columns is-centered">
+            <div class="column is-narrow">
+                <h1>Hello Minions!</h1>
+            </div>
+        </div>
+
+
+        <div class="columns is-centered">
+            <div class="column is-narrow">
+                <img (click)= "sidenav.open()" src="http://weknowyourdreams.com/images/minions/minions-01.jpg" width="384" length="240">
+            </div>
+        </div>
+        <router-outlet></router-outlet>
+
+        <form>
+            <div class="columns is-centered">
+                <div class="column is-narrow">
+                </div>
+            </div>
+        </form>
+
+        <ul>
+            <li *ngFor="let date of bookingDates">
+                {{date.checkinDate}} - {{date.checkoutDate}}</li>
+        </ul>
     </div>
- </div>
-
-
-<div class="columns is-centered">
-    <div class="column is-narrow">
-        <img src="http://weknowyourdreams.com/images/minions/minions-01.jpg" width="384" length="240">
-    </div>
-</div>
-<form>
-<div class="columns is-centered">
-    <div class="column is-narrow">
-            <md-input-container>
-                    <input required name="checkinDate" #checkinDate="ngModel" [(ngModel)]="reservation.checkinDate" mdInput [mdDatepicker]="picker1" placeholder="Check-in Date" >
-                    <button mdSuffix [mdDatepickerToggle]="picker1"></button>
-                    <div *ngIf="checkinDate.invalid && (checkinDate.dirty || checkinDate.touched)"> 
-                        <md-error *ngIf="checkinDate.errors.required" >        
-                            Date require
-                        </md-error>
-
-                    </div>
-     
-
-                  </md-input-container>
-                  <md-datepicker #picker1></md-datepicker>
-                
-                <md-input-container>
-                    <input required name="checkoutDate" #checkoutDate="ngModel" [(ngModel)]="reservation.checkoutDate" mdInput [mdDatepicker]="picker2" placeholder="Check-out Date">                  
-                    <button mdSuffix [mdDatepickerToggle]="picker2"></button>
-                    <md-error *ngIf="checkoutDate.errors && (checkoutDate.dirty || checkoutDate.dirty)">
-                        Date required
-                    </md-error>
-                  </md-input-container>
-                  <md-datepicker #picker2></md-datepicker>
-    </div>
-
-</div>
-
-<div class="columns is-centered">
-    <div class="column is-narrow"> 
-            <button [disabled]="!checkinDate.valid || !checkoutDate.valid " md-button (click)="save()"><md-icon>save</md-icon> Save</button>
-            <button md-button (click)="overview()"><md-icon>list</md-icon> Overiew</button>
-            <button md-button (click)="clear()"><md-icon>delete</md-icon> Delete</button>
-    </div>
-
-</div>
-</form>
-
-<ul><li *ngFor = "let date of bookingDates">
-    {{date.checkinDate}} - {{date.checkoutDate}}</li>
-</ul>
+</md-sidenav-container>

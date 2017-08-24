@@ -1,0 +1,16 @@
+<form>
+    <div class="columns is-centered">
+        <div class="column is-narrow">
+
+ <!--            <button md-button (click)="overview()"><md-icon>list</md-icon> Overiew</button> -->
+            <button md-button (click)="clear()"><md-icon>delete</md-icon> Delete</button>
+        </div>
+
+    </div>
+</form>
+<div class="columns is-centered">
+    <ul>
+        <li *ngFor="let date of bookingDates">
+            {{date.checkinDate}} - {{date.checkoutDate}}</li>
+    </ul>
+</div>

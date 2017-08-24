@@ -1,0 +1,39 @@
+<!--The content below is only a placeholder and can be replaced.-->
+    <form>
+    <div class="columns is-centered">
+        <div class="column is-narrow">
+                <md-input-container>
+                        <input required name="checkinDate" #checkinDate="ngModel" [(ngModel)]="reservation.checkinDate" mdInput [mdDatepicker]="picker1" placeholder="Check-in Date" >
+                        <button mdSuffix [mdDatepickerToggle]="picker1"></button>
+                        <div *ngIf="checkinDate.invalid && (checkinDate.dirty || checkinDate.touched)"> 
+                            <md-error *ngIf="checkinDate.errors.required" >        
+                                Date require
+                            </md-error>
+    
+                        </div>
+         
+    
+                      </md-input-container>
+                      <md-datepicker #picker1></md-datepicker>
+                    
+                    <md-input-container>
+                        <input required name="checkoutDate" #checkoutDate="ngModel" [(ngModel)]="reservation.checkoutDate" mdInput [mdDatepicker]="picker2" placeholder="Check-out Date">                  
+                        <button mdSuffix [mdDatepickerToggle]="picker2"></button>
+                        <md-error *ngIf="checkoutDate.errors && (checkoutDate.dirty || checkoutDate.dirty)">
+                            Date required
+                        </md-error>
+                      </md-input-container>
+                      <md-datepicker #picker2></md-datepicker>
+        </div>
+    </div>
+    
+    <div class="columns is-centered">
+        <div class="column is-narrow"> 
+                <button [disabled]="!checkinDate.valid || !checkoutDate.valid " md-button (click)="save()"><md-icon>save</md-icon> Save</button>
+               
+        </div>
+    
+    </div>
+    </form>
+    
+
