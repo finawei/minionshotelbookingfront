@@ -18,7 +18,6 @@ constructor(private http: HttpClient, private reservationService: ReservationSer
 
 ngOnInit() {
   this.reservation = new Reservation();
-
 }
 
 
@@ -29,7 +28,11 @@ public save() {
      this.router.navigate(['/overview']); // navigate to overview page
      console.log(this.reservation);
   }, (error: any) => {
-    alert('Invalid Dates');
+    if (error.status === 400) {
+      alert('Please Enter Valid Date');
+  }else {
+      alert('Cannot Connect to Server');
+  }
   });
 }
 

@@ -1,0 +1,18 @@
+<form>
+    <div class="columns is-centered">
+        <div class="column is-narrow">
+            <md-input-container>
+                <input mdInput required name="username" placeholder="username" #username="ngModel" [(ngModel)]="user.username">
+            </md-input-container>
+
+            <md-input-container>
+                <input mdInput required name= "password" placeholder="password" #password="ngModel" [(ngModel)]="user.password">
+            </md-input-container>
+
+            <div>
+                <button md-raised-button (click)="login()">Login</button>
+            </div>
+
+        </div>
+    </div>
+</form>

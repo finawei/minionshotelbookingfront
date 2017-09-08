@@ -9,11 +9,18 @@ import { ReservationService} from './service/reservation.service';
 import { CreateComponent} from './create-reservation/create.component';
 import { OverviewComponent} from './overview/overview.component';
 import { RouterModule, Routes} from '@angular/router';
+import { UserService} from './service/user.service';
 import 'hammerjs';
+import { TokenService } from './service/token.service';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './service/login.service';
+import { Http, HttpModule } from '@angular/http';
+
 
 const appRoutes: Routes = [
     {path: 'overview', component: OverviewComponent},
     {path: 'create', component: CreateComponent},
+    {path: 'login', component: LoginComponent},
     {path: '', redirectTo: '/overview',
     pathMatch: 'full'
 }
@@ -24,17 +31,19 @@ const appRoutes: Routes = [
     declarations: [
         AppComponent,
         CreateComponent,
-        OverviewComponent
+        OverviewComponent,
+        LoginComponent
     ],
     imports: [
         RouterModule.forRoot(appRoutes),
         BrowserModule,
         FormsModule,
         HttpClientModule,
+        HttpModule,
         BrowserAnimationsModule,
         MaterialModule
     ],
-    providers: [ReservationService],
+    providers: [ReservationService, UserService, TokenService, LoginService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
