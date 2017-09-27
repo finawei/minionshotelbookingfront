@@ -1,16 +1,38 @@
 <form>
-    <div class="columns is-centered">
-        <div class="column is-narrow">
-
- <!--            <button md-button (click)="overview()"><md-icon>list</md-icon> Overiew</button> -->
-            <button md-button (click)="clear()"><md-icon>delete</md-icon> Delete</button>
+    <div class="columns is-centered" fxlayout="row">
+        <div fxlayout="70" >
+            <md-list fxLayoutAlign="center center">
+                <md-icon>date_range</md-icon>
+                <span> Bookings</span>
+            </md-list>
+            <md-list class="lsdate" *ngFor="let date of bookingDates">{{date.checkinDate}} - {{date.checkoutDate}}</md-list>
         </div>
 
+        <div fixlayout="30" >
+            <md-list fxLayoutAlign="center center">
+                <md-icon>delete</md-icon>
+                <span>Delete</span>
+            </md-list>
+            <md-list *ngFor= "let date of bookingDates">
+                <button md-button (click)="deleteOneBooking(date.bookingID)">
+                    <md-icon class="lsicon">clear</md-icon>
+                </button>
+               
+            </md-list>
+        </div>
     </div>
+
+
+    <div class="columns is-centered">
+        <!-- <button md-button (click)="clear()"><md-icon>delete</md-icon> Delete All</button> -->
+        <!-- <button md-button (click)="deleteSomeBookings()"></button> -->
+    </div>
+
+
+    <!-- test -->
+    <!-- <md-selection-list #dates>
+            <md-list-option *ngFor="let date of bookingDates">
+              {{date.checkinDate}}
+            </md-list-option>
+          </md-selection-list> -->
 </form>
-<div class="columns is-centered">
-    <ul>
-        <li *ngFor="let date of bookingDates">
-            {{date.checkinDate}} - {{date.checkoutDate}}</li>
-    </ul>
-</div>

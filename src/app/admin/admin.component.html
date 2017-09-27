@@ -1,0 +1,25 @@
+<div class="flex-container">
+    <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxflex="50">
+        <md-list fxlayout="row" fxLayoutAlign="center center" class="md-hue-3">
+                <md-icon>perm_identity</md-icon>
+        </md-list>
+            <md-list fxLayoutAlign="center center" *ngFor="let booking of bookings">
+                    {{booking.username}}
+            </md-list>        
+    </div>
+
+    <div fxflex="50" >
+        <md-list fxlayout="row" class="md-hue-3" fxLayoutAlign="center center">
+                <md-icon>date_range</md-icon> 
+                <span> Bookings</span>
+        </md-list>
+        <md-list *ngFor="let booking of bookings" fxLayoutAlign="center center">
+            {{booking.checkinDate}} -{{booking.checkoutDate}}
+        </md-list>    
+    </div>
+</div>
+    <div fxLayoutAlign="center center">
+        <button md-button (click) ="sendEmail()"><md-icon>send</md-icon> Send</button>
+    </div>
+</div>

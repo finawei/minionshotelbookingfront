@@ -13,7 +13,7 @@ public login(user: User) {
     + '&username=' + user.username
     + '&password=' + user.password;
     const headers = new Headers();
-    headers.append('Authorization', 'Basic Z2lneTpzZWNyZXQ=');
+    headers.append('Authorization', 'Basic bWluaW9uc2hvdGVsYm9va2luZzpoZWxsb21pbmlvbnM=');
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 return this.http.post ('http://localhost:8080/oauth/token', credentials, {
     headers: headers

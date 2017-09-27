@@ -9,7 +9,6 @@
                             <md-error *ngIf="checkinDate.errors.required" >        
                                 Date require
                             </md-error>
-    
                         </div>
          
     
@@ -19,7 +18,7 @@
                     <md-input-container>
                         <input required name="checkoutDate" #checkoutDate="ngModel" [(ngModel)]="reservation.checkoutDate" mdInput [mdDatepicker]="picker2" placeholder="Check-out Date">                  
                         <button mdSuffix [mdDatepickerToggle]="picker2"></button>
-                        <md-error *ngIf="checkoutDate.errors && (checkoutDate.dirty || checkoutDate.dirty)">
+                        <md-error *ngIf="checkoutDate.errors && (checkoutDate.dirty || checkoutDate.touched)">
                             Date required
                         </md-error>
                       </md-input-container>
@@ -35,5 +34,6 @@
     
     </div>
     </form>
+    
     
 
