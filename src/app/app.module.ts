@@ -15,13 +15,19 @@ import { TokenService } from './service/token.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './service/login.service';
 import { Http, HttpModule } from '@angular/http';
+import { RegisterComponent } from './register/register.component';
+import { RegisterService } from './service/register.service';
+import { AdminComponent } from './admin/admin.component';
+
 
 
 const appRoutes: Routes = [
     {path: 'overview', component: OverviewComponent},
     {path: 'create', component: CreateComponent},
     {path: 'login', component: LoginComponent},
-    {path: '', redirectTo: '/overview',
+    {path: 'register', component: RegisterComponent},
+    {path: 'admin', component: AdminComponent},
+    {path: '', redirectTo: '/login',
     pathMatch: 'full'
 }
 ];
@@ -32,7 +38,9 @@ const appRoutes: Routes = [
         AppComponent,
         CreateComponent,
         OverviewComponent,
-        LoginComponent
+        LoginComponent,
+        RegisterComponent,
+        AdminComponent
     ],
     imports: [
         RouterModule.forRoot(appRoutes),
@@ -43,7 +51,8 @@ const appRoutes: Routes = [
         BrowserAnimationsModule,
         MaterialModule
     ],
-    providers: [ReservationService, UserService, TokenService, LoginService],
+    providers: [ReservationService, UserService, TokenService, LoginService, RegisterService],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }

@@ -1,16 +1,27 @@
-<form>
+<form name="userForm">
     <div class="columns is-centered">
         <div class="column is-narrow">
             <md-input-container>
                 <input mdInput required name="username" placeholder="username" #username="ngModel" [(ngModel)]="user.username">
-            </md-input-container>
+                <md-error *ngIf="username.touched||username.dirty">
+                    Please enter username
+                </md-error>
 
-            <md-input-container>
-                <input mdInput required name= "password" placeholder="password" #password="ngModel" [(ngModel)]="user.password">
             </md-input-container>
+            <div>
+                <md-input-container>
+                    <input mdInput required minlength="4" name="password" placeholder="password"
+                    #password="ngModel" [(ngModel)]="user.password" type="password" >
+                    <md-error *ngIf="password.touched||password.dirty">
+                        Please enter password
+                    </md-error>
+
+                </md-input-container>
+            </div>
 
             <div>
-                <button md-raised-button (click)="login()">Login</button>
+                <button [disabled]= "username.invalid||password.invalid" md-raised-button color="primary" (click)="login()">Login</button>
+                <button md-raised-button (click)="navRegister()">Register</button>
             </div>
 
         </div>

@@ -13,7 +13,9 @@ export class CreateComponent implements OnInit {
 public reservation: Reservation;
 
 
-constructor(private http: HttpClient, private reservationService: ReservationService, private router: Router) {
+constructor(private http: HttpClient,
+            private reservationService: ReservationService,
+            private router: Router) {
 }
 
 ngOnInit() {
@@ -30,11 +32,23 @@ public save() {
   }, (error: any) => {
     if (error.status === 400) {
       alert('Please Enter Valid Date');
-  }else {
-      alert('Cannot Connect to Server');
+  } else if (error.status === 401) {
+      alert ('Unauthorized');
+  } else if (error.status === 0) {
+      alert('Server is down');
+  } else {
+      alert('Oops, unexpected error');
   }
   });
 }
 
-
+public navBooking() {
+  this.router.navigate(['/create']);
+}
+public navOverview() {
+  this.router.navigate(['/overview']);
+}
+public navAdmin() {
+  this.router.navigate(['/admin']);
+}
 }

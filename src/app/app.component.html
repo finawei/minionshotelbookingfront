@@ -1,24 +1,28 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <md-sidenav-container>
-    <md-sidenav #sidenav mode="over">
-        <md-list>
-        <md-list-item (click)="sidenav.close()" routerLink="/overview">Overview</md-list-item>
-        <md-list-item (click)="sidenav.close()" routerLink="/create">Date Registeration</md-list-item>
-        </md-list>
-    </md-sidenav>
+        <md-menu #appMenu="mdMenu">
+                <button md-menu-item (click)="navBooking()"> Booking </button>
+                <button md-menu-item (click)="navOverview()"> Overview </button>
+                <button md-menu-item (click)="navAdmin()"> Admin</button>
+                <button md-menu-item (click)="navLogOut()">Log Out</button>
+              </md-menu>
+              <button md-icon-button [mdMenuTriggerFor]="appMenu">
+                    <md-icon>menu</md-icon>Menu
+                 </button>
 
 
     <div>
         <div class="columns is-centered">
             <div class="column is-narrow">
-                <h1>Hello Minions!</h1>
+                <h1 class="md-display-2">Hello Minions!</h1>
             </div>
         </div>
 
 
         <div class="columns is-centered">
             <div class="column is-narrow">
-                <img (click)= "sidenav.open()" src="http://weknowyourdreams.com/images/minions/minions-01.jpg" width="384" length="240">
+                    <img src="http://www.buildabear.ca/public/images/initiatives/minions/promo1.png">   
+              <!-- <img src="http://weknowyourdreams.com/images/minions/minions-01.jpg" width="384" length="240"> -->
             </div>
         </div>
         <router-outlet></router-outlet>

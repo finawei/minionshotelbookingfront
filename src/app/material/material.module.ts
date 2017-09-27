@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CdkTableModule } from '@angular/cdk';
+import {FlexLayoutModule} from '@angular/flex-layout';
+
 import { MdButtonModule, MdCheckboxModule,
     MdDatepickerModule, MdInputModule,
-    MdNativeDateModule, MdIconModule, MdSidenavModule, MdListModule
+    MdNativeDateModule, MdIconModule, MdSidenavModule, MdListModule, MdMenuModule,
+    MdTableModule, MdToolbarModule, MdSelectModule, MdOptionModule,
 } from '@angular/material';
 
 
@@ -16,7 +20,14 @@ import { MdButtonModule, MdCheckboxModule,
         MdNativeDateModule,
         MdIconModule,
         MdSidenavModule,
-        MdListModule
+        MdListModule,
+        MdMenuModule,
+        MdTableModule,
+        CdkTableModule,
+        FlexLayoutModule,
+        MdToolbarModule,
+        MdSelectModule,
+        MdOptionModule
     ],
     exports: [
         MdButtonModule,
@@ -26,7 +37,14 @@ import { MdButtonModule, MdCheckboxModule,
         MdNativeDateModule,
         MdIconModule,
         MdSidenavModule,
-        MdListModule
+        MdListModule,
+        MdMenuModule,
+        MdTableModule,
+        CdkTableModule,
+        FlexLayoutModule,
+        MdToolbarModule,
+        MdSelectModule,
+        MdOptionModule
     ],
     declarations: []
 })
