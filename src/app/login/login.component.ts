@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
     }
     public login() {
         this.loginService.login(this.user).subscribe((token: Token) => {
-            debugger;
             if (this.user.username !== 'voilets') {
                 this.router.navigate(['/overview']);
             }else {
@@ -35,7 +34,9 @@ export class LoginComponent implements OnInit {
         }, (error: any) => {
             if (error.status === 400) {
                 alert('Username and password do not match');
-            } else if (error.status === 500) {
+            } else if (error.status === 401) {
+                alert('User does not exist');
+            }else if (error.status === 500) {
                 alert('Server error');
             }else if (error.status === 0) {
                 alert('Server is down');

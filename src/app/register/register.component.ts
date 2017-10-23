@@ -27,6 +27,8 @@ public register() {
     }, (error: any) => {
         if (error.status === 0 ) {
             alert('Server is down');
+        }else if (error.status === 409) {
+            alert ('User Alredy Exists');
         }else {
             alert('Oops, unexpected error');
         }

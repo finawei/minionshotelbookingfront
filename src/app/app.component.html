@@ -3,7 +3,7 @@
         <md-menu #appMenu="mdMenu">
                 <button md-menu-item (click)="navBooking()"> Booking </button>
                 <button md-menu-item (click)="navOverview()"> Overview </button>
-                <button md-menu-item (click)="navAdmin()"> Admin</button>
+                <button ng-hide md-menu-item (click)="navAdmin()"> Admin</button>
                 <button md-menu-item (click)="navLogOut()">Log Out</button>
               </md-menu>
               <button md-icon-button [mdMenuTriggerFor]="appMenu">
@@ -14,7 +14,7 @@
     <div>
         <div class="columns is-centered">
             <div class="column is-narrow">
-                <h1 class="md-display-2">Hello Minions!</h1>
+                <h1 style="font-size:50px; color:#fce076"><b>Hello Minions!</b></h1>
             </div>
         </div>
 

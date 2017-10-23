@@ -3,35 +3,24 @@
         <div class="column is-narrow">
             <md-input-container>
                 <input mdInput required name="username" placeholder="username" #username="ngModel" [(ngModel)]=user.username>
-                <!-- <md-error *ngIf="username.errors">
-                    Please enter username
-                    <md-error> -->
             </md-input-container>
             <div>
+
+
+
+
+
                 <md-input-container>
-                    <input mdInput required name="password" placeholder="password" #password="ngModel" [(ngModel)]="user.password">
-                    <md-error *ngIf="password.touched">
+                    <input mdInput required name="password" placeholder="password" #password="ngModel" [(ngModel)]="user.password" type="password">
+                    <md-error *ngIf="password.touched||password.dirty">
                         Please enter password
                     </md-error>
                 </md-input-container>
             </div>
 
-            <!-- <div>
-                <md-input-container>
-                    <input mdInput required name="confirmPassword" placeholder="Re-enter password" #confirmPassword="ngModel" [(ngModel)]="user.confirmPassword"
-                        minlength="3" data-match="user.password">
-                    <md-error *ngIf="confirmPassword.errors">
-                        PASS NOT MATCH
-                        <div ng-message = "minlength">too short</div>
-                        <div ng-message = "data-match">doesnt match</div>
-                    </md-error>
-
-                </md-input-container>
-            </div> -->
-
 
             <div>
-                <button [disabled]="username.invalid ||password.invalid|| confirmPassword.invalid" md-raised-button color="primary" (click)="register()">Register</button>
+                <button [disabled]="username.invalid ||password.invalid" md-raised-button color="primary" (click)="register()">Register</button>
                 <button md-raised-button (click)="navLogin()">Login</button>
             </div>
 

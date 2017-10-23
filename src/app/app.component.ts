@@ -31,4 +31,6 @@ public navAdmin() {
 public navLogOut() {
   this.router.navigate(['/login']);
 }
+public adminCheck() {
+}
 }

@@ -42,9 +42,6 @@ export class OverviewComponent implements OnInit {
         this.reservationService.deleteOneBooking(id)
         .subscribe(() => {
             console.log(id + 'is deleted');
-            // look for the index of this booking according to booking id
-            // let position = this.bookingDates.indexOf(id);
-            // this.bookingDates.splice(position, 1);
             const index = this.bookingDates.findIndex (x => x.bookingID === id);
             this.bookingDates.splice(index, 1);
             console.log('This is spliced booking list' + this.bookingDates);

@@ -1,50 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CdkTableModule } from '@angular/cdk';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
-import { MdButtonModule, MdCheckboxModule,
-    MdDatepickerModule, MdInputModule,
-    MdNativeDateModule, MdIconModule, MdSidenavModule, MdListModule, MdMenuModule,
-    MdTableModule, MdToolbarModule, MdSelectModule, MdOptionModule,
+import { MatButtonModule, MatCheckboxModule,
+    MatDatepickerModule, MatInputModule,
+    MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatMenuModule,
+    MatTableModule, MatToolbarModule, MatSelectModule, MatOptionModule, MatFormFieldModule
 } from '@angular/material';
 
 
 @NgModule({
-    imports: [
-        CommonModule,
-        MdButtonModule,
-        MdCheckboxModule,
-        MdDatepickerModule,
-        MdInputModule,
-        MdNativeDateModule,
-        MdIconModule,
-        MdSidenavModule,
-        MdListModule,
-        MdMenuModule,
-        MdTableModule,
-        CdkTableModule,
-        FlexLayoutModule,
-        MdToolbarModule,
-        MdSelectModule,
-        MdOptionModule
-    ],
     exports: [
-        MdButtonModule,
-        MdCheckboxModule,
-        MdDatepickerModule,
-        MdInputModule,
-        MdNativeDateModule,
-        MdIconModule,
-        MdSidenavModule,
-        MdListModule,
-        MdMenuModule,
-        MdTableModule,
-        CdkTableModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatNativeDateModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        MatMenuModule,
+        MatTableModule,
         FlexLayoutModule,
-        MdToolbarModule,
-        MdSelectModule,
-        MdOptionModule
+        MatToolbarModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatFormFieldModule
     ],
     declarations: []
 })

@@ -1,13 +1,15 @@
 <form name="userForm">
     <div class="columns is-centered">
-        <div class="column is-narrow">
-            <md-input-container>
+        <div class="column is-narrow"> 
+            <!-- <md-input-container> -->
+                <md-form-field>
                 <input mdInput required name="username" placeholder="username" #username="ngModel" [(ngModel)]="user.username">
                 <md-error *ngIf="username.touched||username.dirty">
                     Please enter username
-                </md-error>
-
-            </md-input-container>
+                </md-error> 
+            </md-form-field>
+            <!-- </md-input-container> -->
+        
             <div>
                 <md-input-container>
                     <input mdInput required minlength="4" name="password" placeholder="password"
